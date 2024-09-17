@@ -1,14 +1,44 @@
 [
     {
-        "group_name": "Group 2",
+        "group_name": "Group Test",
+        "fonts": [
+            {
+                "font_name": "Nato Sans",
+                "font_file": "NotoSans_Condensed-Black.ttf"
+            },
+            {
+                "font_name": "Playfair wght",
+                "font_file": "PlayfairDisplay-VariableFont_wght.ttf"
+            },
+            {
+                "font_name": "Playfair Black Italic",
+                "font_file": "PlayfairDisplay-BlackItalic.ttf"
+            }
+        ]
+    },
+    {
+        "group_name": "Group1",
+        "fonts": [
+            {
+                "font_name": "Roboto",
+                "font_file": "NotoSans_Condensed-Black.ttf"
+            },
+            {
+                "font_name": "Playfair",
+                "font_file": "PlayfairDisplay-VariableFont_wght.ttf"
+            }
+        ]
+    },
+    {
+        "group_name": "Group 4",
         "fonts": [
             {
                 "font_name": "Playfair",
                 "font_file": "PlayfairDisplay-BlackItalic.ttf"
             },
             {
-                "font_name": "Roboto",
-                "font_file": "Roboto-Bold.ttf"
+                "font_name": "Nato Sans",
+                "font_file": "NotoSans_Condensed-Black.ttf"
             }
         ]
     }

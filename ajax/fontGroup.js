@@ -35,7 +35,8 @@ $(document).ready(function(){
                     var res = (response);
                     if(res.status === 'success'){
                         alert('Font Group Created Successfully');
-                        location.reload(); // Reload the form
+                        // location.reload(); // Reload the form
+                        loadFontGroups();
                     } else {
                         // $('#error').text(res.message);
                         alert('Group Name Already Exists');
