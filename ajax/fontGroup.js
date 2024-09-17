@@ -22,7 +22,6 @@ $(document).ready(function(){
         );
     });
     
-
     // Handle form submission
     $('#fontGroupForm').submit(function(e) {
         e.preventDefault();
@@ -50,6 +49,8 @@ $(document).ready(function(){
             }
         });
     });
+
+    loadFontGroups();
 });
 
 
@@ -71,3 +72,51 @@ function loadFonts(rowIndex) {
     })
     .catch(error => console.error('Error:', error));
 };
+
+function loadFontGroups() {
+    fetch('classes/get-font-groups.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error(data.error);
+            } else {
+                populateTable(data);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+// Function to populate the table with font group data
+function populateTable(fontGroups) {
+    const tableBody = document.getElementById('fontGroupTableBody');
+    tableBody.innerHTML = ''; // Clear existing content
+    fontGroups.forEach(group => {
+        const fontNames = group.fonts.map(font => font.font_name).join('<br>'); // Font names separated by <br>
+        const fontCount = group.fonts.length; // Count of fonts
+        // Create table row
+        const row = `
+            <tr class="bg-white border-b border-gray-200">
+                <td class="px-4 py-2">${group.group_name}</td>
+                <td class="px-4 py-2">${fontNames}</td>
+                <td class="px-4 py-2">${fontCount}</td>
+                <td class="px-4 py-2">
+                    <button class="text-blue-500 hover:text-blue-700" onclick="editGroup('${group.group_name}')">Edit</button>
+                    <button class="text-red-500 hover:text-red-700 ml-4" onclick="deleteGroup('${group.group_name}')">Delete</button>
+                </td>
+            </tr>
+        `;
+        tableBody.insertAdjacentHTML('beforeend', row); // Append row to the table body
+    });
+}
+
+function editGroup(groupName) {
+    alert(`Editing group: ${groupName}`);
+    // Logic to handle editing the group
+}
+
+function deleteGroup(groupName) {
+    if (confirm(`Are you sure you want to delete the group "${groupName}"?`)) {
+        alert(`Deleting group: ${groupName}`);
+        // Logic to handle deleting the group
+    }
+}

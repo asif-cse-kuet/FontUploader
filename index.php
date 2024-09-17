@@ -132,43 +132,13 @@ if (is_dir($fontDir)) {
             <table class="w-full mt-4 table-fixed" id="fontPreviewTable">
                 <thead>
                     <tr class="bg-gray-100">
-                        <th class="text-left py-4 px-6 text-gray-500 text-md">Name</th>
-                        <th class="text-left py-4 px-6 text-gray-500 text-md">Fonts</th>
-                        <th class="text-left py-4 px-6 text-gray-500 text-md">Count</th>
-                        <th class="py-4 px-6"></th>
+                        <th class="text-left py-4 px-4 text-gray-500 text-md">Name</th>
+                        <th class="text-left py-4 px-4 text-gray-500 text-md">Fonts</th>
+                        <th class="text-left py-4 px-4 text-gray-500 text-md">Count</th>
+                        <th class="py-4 px-4"></th>
                     </tr>
                 </thead>
-                <tbody class="text-sm">
-                    <?php
-                    $groupFilePath = 'font_groups.json';
-
-                    if (file_exists($groupFilePath)) {
-                        $fontGroups = json_decode(file_get_contents($groupFilePath), true);
-
-                        foreach ($fontGroups as $group) {
-                            // Count the number of fonts in the group
-                            $fontCount = count($group['fonts']);
-
-                            // Create a string to display all font names
-                            $fontNames = '';
-                            foreach ($group['fonts'] as $font) {
-                                $fontNames .= htmlspecialchars($font['font_name']) . ',' . ' ';
-                            }
-
-                            // Display table row for each font group
-                            echo '<tr class="p-4">';
-                            echo '<td>' . htmlspecialchars($group['group_name']) . '</td>';
-                            echo '<td>' . $fontNames . '</td>';
-                            echo '<td>' . $fontCount . '</td>';
-                            echo '<td>
-                                    <button onclick="editGroup(\'' . htmlspecialchars($group['group_name']) . '\')">Edit</button>
-                                    <button onclick="deleteGroup(\'' . htmlspecialchars($group['group_name']) . '\')">Delete</button>
-                                </td>';
-                            echo '</tr>';
-                        }
-                    }
-                    ?>
-
+                <tbody id="fontGroupTableBody" class="text-sm">
                 </tbody>
             </table>
         </div>
