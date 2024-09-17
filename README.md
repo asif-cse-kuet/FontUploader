@@ -1,4 +1,4 @@
-##How to setup the Project:
+#How to setup the Project:
 1. Please install php latest version from their official site.
 2. Set the path environment for php if necessary depending upon your device.
 3. Check if php is working or not.
@@ -10,5 +10,5 @@
 9. Project is live to use
 10. Thank you
 
-##Contacts (if necessary):
+#Contacts (if necessary):
 Email: asifhasan.cse75@gmail.com
