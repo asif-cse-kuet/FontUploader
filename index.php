@@ -33,10 +33,10 @@
 
         <!-- Font Show Section -->
         <div class="bg-white mt-6">
-            <h4 class="p-2"><strong>Uploaded Fonts</strong></h4>
+            <h4 class="p-2"><strong>Our Fonts</strong></h4>
+            <p class="text-gray-400 pl-2 text-sm">Browse a list of Zepto fonts to build font group</p>
             <p id="font_delete_message" class="text-red-500 mt-4"></p>
-            <table class="w-full mt-4" id="fontPreviewTable">
-                <!-- Table Header -->
+            <table class="w-full mt-4 table-fixed" id="fontPreviewTable">
                 <thead>
                     <tr class="bg-gray-100">
                         <th class="text-left py-4 px-6 text-gray-500 text-md">Font Name</th>
@@ -54,12 +54,13 @@
                             $fontName = $fontInfo['filename']; // Get font name without extension
                             $fontId = 'font_' . time() . '_' . $fontName;
                             echo '<tr id="' . $fontId . '">' .
-                                '<td class="py-4 px-6">' . $fontName . '</td>' .
-                                '<td class="py-4 px-6" style="font-family: ' . $fontId . '">Sample Text</td>' .
-                                '<td class="py-4 px-6 text-red-500 cursor-pointer">' .
+                                '<td class="py-4 px-3">' . $fontName . '</td>' .
+                                '<td class="py-4 px-3" style="font-family: ' . $fontId . '">Sample Text</td>' .
+                                '<td class="py-4 px-3 text-red-500 cursor-pointer text-right">' .
                                 '<button class="delete-btn" data-font="' . $file . '">Delete</button>' . // Add the font filename in the data attribute
                                 '</td>' .
                                 '</tr>';
+                            echo '<tr>' . '<td colspan="3" class="border-b-2 border-gray-200">' . '</td>' . '</tr>';
                             // Include the @font-face CSS rule dynamically
                             echo '<style>@font-face {font-family: "' . $fontId . '"; src: url("' . $fontDir . $file . '");}</style>';
                         }
