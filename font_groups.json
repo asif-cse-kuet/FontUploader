@@ -1,18 +1,5 @@
 [
     {
-        "group_name": "Group1",
-        "fonts": [
-            {
-                "font_name": "Roboto",
-                "font_file": "PlayfairDisplay-BlackItalic.ttf"
-            },
-            {
-                "font_name": "Roboto",
-                "font_file": "Roboto-Bold.ttf"
-            }
-        ]
-    },
-    {
         "group_name": "Group 2",
         "fonts": [
             {
